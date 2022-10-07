@@ -10,15 +10,14 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    Double Result = 0.0, Num1 = 0.0, Num2 = 0.0;
-    String Calc = "";
-
+    private DecimalFormat format = new DecimalFormat("0.#");
+    private double result = 0.0, oldNum = 0.0;
+    String calc = " ";
+    boolean newNum = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         //Setting Up Buttons
         //------------------------------------------------
         //Row 1
@@ -47,47 +46,50 @@ public class MainActivity extends AppCompatActivity {
         Button Equals = (Button) findViewById(R.id.btnEquals);
 
         TextView output = (TextView) findViewById(R.id.calcView);
+        output.setText("0");
+
 
         //Button Calculations
         //-------------------------------------------------
+
         //Row 1
         Clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Result = 0.0;
-                Num1 = 0.0;
-                Num2 = 0.0;
+                result = 0.0;
+                oldNum = 0.0;
                 output.setText("0");
             }
         });
+
         ChangeSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DecimalFormat format = new DecimalFormat("0.#");
-                Double Num = Double.parseDouble(output.getText().toString());
-                if (Num > 0) {
-                    Num = -Math.abs(Num);
+                double num = Double.parseDouble(output.getText().toString());
+                if (num > 0) {
+                    num = -Math.abs(num);
                 } else {
-                    Num = Math.abs(Num);
+                    num = Math.abs(num);
                 }
-                output.setText(format.format(Num));
+                output.setText(format.format(num));
             }
         });
 
         Percent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double Num = Double.parseDouble(output.getText().toString());
-                Num = Num / 100;
-                output.setText(Double.toString(Num));
+                double num = Double.parseDouble(output.getText().toString());
+                num = num / 100;
+                output.setText(Double.toString(num));
             }
         });
 
         Divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calc = "Divide";
-                Num2 = Double.parseDouble(output.getText().toString());
+                calc = "Divide";
+                oldNum = Double.parseDouble(output.getText().toString());
                 output.setText(" ");
             }
         });
@@ -96,51 +98,36 @@ public class MainActivity extends AppCompatActivity {
         Seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("7");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "7";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "7");
+                output.setText(num);
             }
         });
 
         Eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("8");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "8";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "8");
+                output.setText(num);
             }
         });
 
         Nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("9");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "9";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "9");
+                output.setText(num);
             }
         });
 
         Multiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calc = "Multiply";
-                Num2 = Double.parseDouble(output.getText().toString());
-                output.setText(" ");
+                calc = "Multiply";
+                oldNum = Double.parseDouble(output.getText().toString());
+                newNum = true;
             }
         });
 
@@ -149,51 +136,36 @@ public class MainActivity extends AppCompatActivity {
         Four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("4");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "4";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "4");
+                output.setText(num);
             }
         });
 
         Five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("5");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "5";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "5");
+                output.setText(num);
             }
         });
 
         Six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("6");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "6";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "6");
+                output.setText(num);
             }
         });
 
         Minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calc = "Minus";
-                Num2 = Double.parseDouble(output.getText().toString());
-                output.setText(" ");
+                calc = "Minus";
+                oldNum = Double.parseDouble(output.getText().toString());
+                newNum = true;
             }
         });
 
@@ -201,51 +173,36 @@ public class MainActivity extends AppCompatActivity {
         One.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("1");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "1";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "1");
+                output.setText(num);
             }
         });
 
         Two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("2");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "2";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "2");
+                output.setText(num);
             }
         });
 
         Three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(output.getText().toString().equals("0")){
-                    output.setText("3");
-                }
-                else {
-                    String Num = output.getText().toString();
-                    Num = Num + "3";
-                    output.setText(Num);
-                }
+                String num = (output.getText().toString());
+                num = createNewNum(num, "3");
+                output.setText(num);
             }
         });
 
         Plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calc = "Plus";
-                Num2 = Double.parseDouble(output.getText().toString());
-                output.setText(" ");
+                calc = "Plus";
+                oldNum = Double.parseDouble(output.getText().toString());
+                newNum = true;
             }
         });
 
@@ -253,44 +210,69 @@ public class MainActivity extends AppCompatActivity {
         Zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Num = output.getText().toString();
-                Num = Num + "0";
-                output.setText(Num);
+                String num = (output.getText().toString());
+                num = createNewNum(num, "0");
+                output.setText(num);
             }
         });
+
         Equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DecimalFormat format = new DecimalFormat("0.#");
-                if (Calc.equals("Divide")) {
-                    Num1 = Double.parseDouble(output.getText().toString());
-                    Result = Num2 / Num1;
-                    output.setText(format.format(Result));
-                    Calc = " ";
+                double num = 0.0;
+                if (calc.equals("Divide")) {
+                    num = Double.parseDouble(output.getText().toString());
+                    result = oldNum / num;
+                    output.setText(format.format(result));
+                    calc = " ";
                 }
-                else if (Calc.equals("Multiply")) {
-                    Num1 = Double.parseDouble(output.getText().toString());
-                    Result = Num2 * Num1;
-                    output.setText(format.format(Result));
-                    Calc = " ";
+                else if (calc.equals("Multiply")) {
+                    num = Double.parseDouble(output.getText().toString());
+                    result = oldNum * num;
+                    output.setText(format.format(result));
+                    calc = " ";
                 }
-                else if (Calc.equals("Minus")){
-                    Num1 = Double.parseDouble(output.getText().toString());
-                    Result = Num2 - Num1;
-                    output.setText(format.format(Result));
-                    Calc = " ";
+                else if (calc.equals("Minus")){
+                    num = Double.parseDouble(output.getText().toString());
+                    result = oldNum - num;
+                    output.setText(format.format(result));
+                    calc = " ";
                 }
-                else if (Calc.equals("Plus")){
-                    Num1 = Double.parseDouble(output.getText().toString());
-                    Result = Num2 + Num1;
-                    output.setText(format.format(Result));
-                    Calc = " ";
+                else if (calc.equals("Plus")){
+                    num = Double.parseDouble(output.getText().toString());
+                    result = oldNum + num;
+                    output.setText(format.format(result));
+                    calc = " ";
                 }
                 else{
-                    Calc = " ";
+                    calc = " ";
                 }
-
             }
         });
     }
+    //Method to create a New Number and then see if one is already made
+    public String createNewNum(String num, String type){
+        String output;
+        if(newNum) {
+            num = " ";
+            output = addNum(num, type);
+            newNum = false;
+        }
+        else{
+            output = addNum(num, type);
+        }
+        return output;
+    }
+    //Method to add to existing number
+    public String addNum(String num, String type){
+        if(num.equals("0")){
+            num = type;
+        }
+        else {
+            num = num + type;
+        }
+        return num;
+    }
+
+
 }

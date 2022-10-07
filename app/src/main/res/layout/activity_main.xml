@@ -38,7 +38,7 @@
     <Button
         android:id="@+id/btnClear"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="A/C"
         app:layout_constraintBottom_toTopOf="@+id/btnSeven"
@@ -50,7 +50,7 @@
     <Button
         android:id="@+id/btnChangeSign"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="+/-"
         app:layout_constraintEnd_toStartOf="@+id/btnPercent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -60,7 +60,7 @@
     <Button
         android:id="@+id/btnPercent"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="%"
         app:layout_constraintEnd_toStartOf="@+id/btnDivide"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,7 +70,7 @@
     <Button
         android:id="@+id/btnDivide"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="/"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -80,7 +80,7 @@
     <Button
         android:id="@+id/btnSeven"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="7"
         app:layout_constraintBottom_toTopOf="@+id/btnFour"
         app:layout_constraintEnd_toStartOf="@+id/btnEight"
@@ -91,7 +91,7 @@
     <Button
         android:id="@+id/btnEight"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="8"
         app:layout_constraintBottom_toTopOf="@+id/btnFive"
         app:layout_constraintEnd_toStartOf="@+id/btnNine"
@@ -102,7 +102,7 @@
     <Button
         android:id="@+id/btnNine"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="9"
         app:layout_constraintEnd_toStartOf="@+id/btnMulti"
         app:layout_constraintHorizontal_bias="0.5"
@@ -112,7 +112,7 @@
     <Button
         android:id="@+id/btnMulti"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="X"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -122,7 +122,7 @@
     <Button
         android:id="@+id/btnFour"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="4"
         app:layout_constraintBottom_toTopOf="@+id/btnOne"
         app:layout_constraintEnd_toStartOf="@+id/btnFive"
@@ -133,7 +133,7 @@
     <Button
         android:id="@+id/btnFive"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="5"
         app:layout_constraintBottom_toTopOf="@+id/btnTwo"
         app:layout_constraintEnd_toStartOf="@+id/btnSix"
@@ -144,7 +144,7 @@
     <Button
         android:id="@+id/btnSix"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="6"
         app:layout_constraintEnd_toStartOf="@+id/btnMinus"
         app:layout_constraintHorizontal_bias="0.5"
@@ -154,7 +154,7 @@
     <Button
         android:id="@+id/btnMinus"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="-"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -164,7 +164,7 @@
     <Button
         android:id="@+id/btnOne"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="1"
         app:layout_constraintBottom_toTopOf="@+id/btnZero"
         app:layout_constraintEnd_toStartOf="@+id/btnTwo"
@@ -175,7 +175,7 @@
     <Button
         android:id="@+id/btnTwo"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="2"
         app:layout_constraintBottom_toTopOf="@+id/btnZero"
         app:layout_constraintEnd_toStartOf="@+id/btnThree"
@@ -186,7 +186,7 @@
     <Button
         android:id="@+id/btnThree"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="3"
         app:layout_constraintEnd_toStartOf="@+id/btnPlus"
         app:layout_constraintHorizontal_bias="0.5"
@@ -196,7 +196,7 @@
     <Button
         android:id="@+id/btnPlus"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -206,7 +206,7 @@
     <Button
         android:id="@+id/btnZero"
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnPeriod"
@@ -217,7 +217,7 @@
     <Button
         android:id="@+id/btnPeriod"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnEquals"
@@ -228,7 +228,7 @@
     <Button
         android:id="@+id/btnEquals"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:text="="
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
